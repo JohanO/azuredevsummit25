@@ -1,0 +1,16 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
+    "mounts": [
+        {
+            "type": "volume",
+            "source": "x509stores",
+            "target": "/home/vscode/.dotnet/corefx/cryptography/x509stores"
+        }
+    ],
+    "remoteEnv": {
+        "PODMAN_USERNS": "keep-id"
+    },
+    "containerUser": "vscode",
+    "postCreateCommand": "bash .devcontainer/setup-zscaler-cert.sh",
+    "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh"
+}
