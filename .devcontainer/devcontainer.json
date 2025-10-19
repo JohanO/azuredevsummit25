@@ -1,5 +1,6 @@
 {
     "image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
+    "name": "azuredevsummit25",
     "mounts": [
         {
             "type": "volume",
@@ -7,10 +8,15 @@
             "target": "/home/vscode/.dotnet/corefx/cryptography/x509stores"
         }
     ],
+    "containerEnv": {
+        "http_proxy": "",
+        "https_proxy": "",
+        "HTTP_PROXY": "",
+        "HTTPS_PROXY": ""
+    },
     "remoteEnv": {
         "PODMAN_USERNS": "keep-id"
     },
     "containerUser": "vscode",
-    "postCreateCommand": "bash .devcontainer/setup-zscaler-cert.sh",
     "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh"
 }
