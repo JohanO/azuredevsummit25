@@ -1,6 +1,19 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
+    //"image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
     "name": "azuredevsummit25",
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11",
+            "installTools": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "http.useLocalProxyConfiguration": false
+            }
+        }
+    },
     "mounts": [
         {
             "type": "volume",
@@ -8,6 +21,15 @@
             "target": "/home/vscode/.dotnet/corefx/cryptography/x509stores"
         }
     ],
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "http_proxy": "",
+            "https_proxy": "",
+            "HTTP_PROXY": "",
+            "HTTPS_PROXY": ""
+        }
+    },
     "containerEnv": {
         "http_proxy": "",
         "https_proxy": "",
@@ -18,5 +40,6 @@
         "PODMAN_USERNS": "keep-id"
     },
     "containerUser": "vscode",
-    "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh"
+    "onCreateCommand": "bash .devcontainer/setup-dotnet-dev-cert.sh",
+    "postCreateCommand": "bash .devcontainer/post-create.sh"
 }
