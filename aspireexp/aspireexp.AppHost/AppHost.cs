@@ -1,5 +1,7 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+builder.AddAzureContainerAppEnvironment("aspireexp-env");
+
 var cache = builder.AddRedis("cache");
 
 var apiService = builder.AddProject<Projects.aspireexp_ApiService>("apiservice")

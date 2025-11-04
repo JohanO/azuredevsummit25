@@ -1,0 +1,6 @@
+{
+  "features": {
+    "deployCommandEnabled": "true"
+  },
+  "appHostPath": "../aspireexp/aspireexp.AppHost/aspireexp.AppHost.csproj"
+}
